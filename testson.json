@@ -1,0 +1,92 @@
+{
+  "count": 10,
+  "next": null,
+  "previous": "https://sd-2396737-h00023.ferozo.net/api/stories/?page_size=5",
+  "results": [
+      {
+          "id": 8,
+          "username": "3motions",
+          "avatar": "https://sd-2396737-h00023.ferozo.net/media/avatars/270001075_1042736952941804_1644200075285240727_n.jpg",
+          "stories": [
+              {
+                  "id": 8,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_17.03.21.png",
+                  "uploaded_ago": "12 h"
+              },
+              {
+                  "id": 9,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_17.03.35.png",
+                  "uploaded_ago": "4 h"
+              }
+          ]
+      },
+      {
+          "id": 9,
+          "username": "atiscolaro",
+          "avatar": "https://sd-2396737-h00023.ferozo.net/media/avatars/350112164_563759285902028_5303144461478717779_n.jpg",
+          "stories": [
+              {
+                  "id": 14,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_18.27.19.png",
+                  "uploaded_ago": "6 h"
+              },
+              {
+                  "id": 15,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_18.27.48.png",
+                  "uploaded_ago": "2 h"
+              }
+          ]
+      },
+      {
+          "id": 11,
+          "username": "nachoborrelli",
+          "avatar": null,
+          "stories": [
+              {
+                  "id": 12,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_17.09.26.png",
+                  "uploaded_ago": "23 h"
+              },
+              {
+                  "id": 13,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_17.09.14.png",
+                  "uploaded_ago": "14 h"
+              }
+          ]
+      },
+      {
+          "id": 12,
+          "username": "lucasezequiel0_",
+          "avatar": "https://sd-2396737-h00023.ferozo.net/media/avatars/250665598_317469846854051_4678076843652555390_n.jpg",
+          "stories": [
+              {
+                  "id": 20,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_19.11.39.png",
+                  "uploaded_ago": "2 h"
+              },
+              {
+                  "id": 21,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_19.11.55.png",
+                  "uploaded_ago": "1 h"
+              }
+          ]
+      },
+      {
+          "id": 13,
+          "username": "brunomartin.exe",
+          "avatar": "https://sd-2396737-h00023.ferozo.net/media/avatars/77316596_2574027706152147_6908281061109661696_n.jpg",
+          "stories": [
+              {
+                  "id": 18,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_18.40.16.png",
+                  "uploaded_ago": "1 h"
+              },
+              {
+                  "id": 19,
+                  "file": "https://sd-2396737-h00023.ferozo.net/media/uploads/Captura_de_pantalla_2023-11-07_a_las_18.40.22.png",
+                  "uploaded_ago": "40 m"
+              }
+          ]
+      }
+  ]
+}

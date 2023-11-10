@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -27,6 +28,7 @@ const formSchema = z.object({
   }),
 });
 
+
 export function LoginForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,8 +38,17 @@ export function LoginForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const user = {
+      email: values.email,
+      password: values.password,
+    };
+
+    const { data } = await axios.post(
+      "https://sd-2396737-h00023.ferozo.net/api/auth/login/",
+      user
+    );
+    localStorage.setItem("token", data.key);
   }
 
   const [isPasswordShown, setIsPasswordShown] = useState(false);
