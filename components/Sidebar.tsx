@@ -1,21 +1,25 @@
-import React, { FC } from "react";
+"use client";
+
+import { useEffect, useState } from 'react';
+import { axiosGetStories } from "@/app/api/axios";
+
+import React from "react";
 import UserStory from "./UserStory";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Plus } from "lucide-react";
 
-type story = {
-  id: number,
-  avatar: string,
-  username: string,
-  stories: string[],
-}
+const Sidebar = () => {
+  const [stories, setStories] = useState<any>({results: []})
 
-type SidebarProps = {
-  results: story[]
-}
-
-const Sidebar:FC<SidebarProps> = ({results}) => {
+  useEffect(() => {
+    
+    const getUsersStories = async ()  => {
+      const stories = await axiosGetStories();
+      setStories((stories))
+    }
+    getUsersStories();
+  }, [])
 
   return (
     <div className="flex flex-col bg-[#242424] h-screen w-80">
@@ -24,9 +28,9 @@ const Sidebar:FC<SidebarProps> = ({results}) => {
           src={"/linkchar_logo.svg"}
           width={170}
           height={45}
+          priority
           alt="LinkChar logo"
         />
-
         <p className="text-lg	text-white font-bold">Todas las historias</p>
 
         <Button
@@ -38,12 +42,11 @@ const Sidebar:FC<SidebarProps> = ({results}) => {
         </Button>
       </div>
 
-      <ul className="flex flex-col text-white">
+      <ul className="flex flex-col text-white scroll-smooth overflow-scroll no-scrollbar">
         {
-          results.map((story) => {
+          stories.results.map((story) => {
             return (
-              // on click cambiar story
-              <UserStory story={story}/>
+              <UserStory story={story} key={story.id}/>
             )
           })
         }

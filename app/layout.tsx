@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ReduxProvider from "./redux/features/provider";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "LinkChar challenge",
-  description: "Social app for LinkChar challenge - by Nicolas Soroka",
+  description: "Social app - LinkChar challenge - by Nicolas Soroka",
 };
 
 export default function RootLayout({
@@ -17,8 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-screen bg-black flex flex-col`}>
-        <ReduxProvider>{children}</ReduxProvider>
+      <body className={`${inter.className} w-screen bg-black`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

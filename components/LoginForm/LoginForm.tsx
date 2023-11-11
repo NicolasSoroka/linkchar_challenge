@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import useUser from "@/lib/useUser";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -28,8 +30,9 @@ const formSchema = z.object({
   }),
 });
 
-
 export function LoginForm() {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,6 +52,12 @@ export function LoginForm() {
       user
     );
     localStorage.setItem("token", data.key);
+
+    const isLoggedIn = useUser();
+
+    if (isLoggedIn) {
+      router.push("/home");
+    }
   }
 
   const [isPasswordShown, setIsPasswordShown] = useState(false);

@@ -5,18 +5,8 @@ import axios from "axios";
 // #Desafio2023
 // Token a047c54abb449b4abe53544136358b1d662414bf
 
-// const instance = axios.create({
-//   baseURL: 'https://sd-2396737-h00023.ferozo.net/',
-//   timeout: 1000,
-//   headers: {
-//     'Access-Control-Allow-Origin': '*',
-//     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-//     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-//   }
-// });
-
  export const axiosGetStories = async () => {
-  const {data} = await axios.get('https://sd-2396737-h00023.ferozo.net/api/stories/?page_size=5&page=1');
+  const {data} = await axios.get('https://sd-2396737-h00023.ferozo.net/api/stories');
   return data;
 }
 
