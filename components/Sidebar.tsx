@@ -8,18 +8,17 @@ import UserStory from "./UserStory";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Plus } from "lucide-react";
+import { useQuery } from '@tanstack/react-query';
 
 const Sidebar = () => {
-  const [stories, setStories] = useState<any>({results: []})
+  const { isPending, error, data : stories, isFetching } = useQuery({
+    queryKey: ['stories'],
+    queryFn: () =>
+    axiosGetStories().then((res) => res.data),
+  })
 
-  useEffect(() => {
-    
-    const getUsersStories = async ()  => {
-      const stories = await axiosGetStories();
-      setStories((stories))
-    }
-    getUsersStories();
-  }, [])
+   if (isPending) return 'Loading...'
+   if (error) return 'An error has occurred: ' + error.message
 
   return (
     <div className="flex flex-col bg-[#242424] h-screen w-80">
@@ -37,6 +36,7 @@ const Sidebar = () => {
           type="submit"
           variant="linkchar"
           className="w-64 text-sm text-white font-normal"
+          onClick={() => {console.log("Subir historia")}}
         >
           <Plus className="mr-2 h-4 w-4" /> Subir historia
         </Button>

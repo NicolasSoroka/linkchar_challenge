@@ -20,8 +20,9 @@ type UserStoryTypes = {
 };
 
 const UserStory: FC<UserStoryTypes> = ({
-  story: { id, avatar, username, stories },
+  story: { id, avatar, username, stories  },
 }) => {
+  console.log("🚀🚀🚀🚀🚀 ~ file: UserStory.tsx:25 ~ stories:", stories.length)
   avatar = avatar ?? "/images/user-circle.png";
 
   return (
@@ -48,7 +49,7 @@ const UserStory: FC<UserStoryTypes> = ({
           <div className="flex gap-x-1">
             <p className="text-sm text-[#FFB7AF]">{stories.length} nuevas</p>
             <span className="text-sm">·</span>
-            <p className="text-sm text-white">31 m</p>
+            <p className="text-sm text-white">{stories[stories.length-1].uploaded_ago}</p>
           </div>
         </div>
       </Link>

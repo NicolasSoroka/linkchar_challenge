@@ -9,6 +9,7 @@ export default function Providers({ children }) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
+      {/* esto se puede mejorar usando parallel routes */}
     </QueryClientProvider>
   );
 }

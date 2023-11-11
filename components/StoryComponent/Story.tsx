@@ -6,6 +6,7 @@ import { axiosGetStories } from "@/app/api/axios";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import StoryImage from "./StoryImage";
+import { useQuery } from "@tanstack/react-query";
 
 type UserStoryTypes = {
   slug: string;
@@ -21,21 +22,22 @@ interface AdjacentUsers {
 }
 
 const Story: FC<UserStoryTypes> = ({ slug }) => {
-  const [stories, setStories] = useState<any>({ results: [] });
   const [currentStory, setCurrentStory] = useState(0);
   const router = useRouter();
+
+  const { isPending, error, data : stories, isFetching } = useQuery({
+    queryKey: ['stories'],
+    queryFn: () =>
+    axiosGetStories().then((res) => res.data),
+  })
 
   const currentUser = stories.results.find((x) => x.username === slug[0]);
   const storyData = currentUser?.stories[currentStory];
   const numberOfStories = currentUser?.stories.length;
 
-  useEffect(() => {
-    const getUsersStories = async () => {
-      const stories = await axiosGetStories();
-      setStories(stories);
-    };
-    getUsersStories();
-  }, []);
+   if (isPending) return 'Loading...'
+   if (isFetching) return 'Fetching...'
+   if (error) return 'An error has occurred: ' + error.message
 
   function findAdjacentUsers(): AdjacentUsers {
     const currentUserIndex = stories.results.findIndex(

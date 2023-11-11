@@ -6,18 +6,15 @@ import axios from "axios";
 // Token a047c54abb449b4abe53544136358b1d662414bf
 
  export const axiosGetStories = async () => {
-  const {data} = await axios.get('https://sd-2396737-h00023.ferozo.net/api/stories');
-  return data;
+  return await axios.get('https://sd-2396737-h00023.ferozo.net/api/stories');
 }
 
 export const axiosGetMyStories = async () => {
-  const {data} = await axios.get('https://sd-2396737-h00023.ferozo.net/api/stories/me/');
-  return data;
+  return await axios.get('https://sd-2396737-h00023.ferozo.net/api/stories/me/');
 }
 
 export const axiosUploadStory = async (story: any) => {
-  const {data} = await axios.post('https://sd-2396737-h00023.ferozo.net/api/stories/', story);
-  return data;
+  return await axios.post('https://sd-2396737-h00023.ferozo.net/api/stories/', story);
 }
 
 axios.interceptors.request.use(

@@ -1,7 +1,19 @@
+"use client";
+
+import { axiosGetMyStories } from '@/app/api/axios'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
 
 const Navbar = () => {
+
+  useEffect(() => {
+    const getUsersStories = async ()  => {
+      const stories = await axiosGetMyStories()
+    }
+    getUsersStories();
+  }, [])
+
   return (
     <div className='flex h-9 w-72 mt-9 mr-5'>
       <ul className='flex gap-x-4 h-9 w-[265px]'>
@@ -42,11 +54,14 @@ const Navbar = () => {
             <span className='absolute top-1 right-0 mr-[2px] text-white bg-[#FD7A6B] w-3 h-3 flex items-center justify-center rounded-full text-bold text-[7px]'>3</span>
         </li>
         <li className="relative w-[38px] h-[38px] border-[3px] border-black outline outline-1 outline-[#FAB2AA] cursor-pointer rounded-full overflow-hidden p-x-1">
+          <Link href={`/home/test}`}>
+          {/* <Link href={`/home/${stories.results[0]}`}> */}
             <Image
               src='/images/avatar.jpg'
               alt={`avatar img`}
               fill
-            />
+              />
+              </Link>
         </li>
       </ul>
     </div>
