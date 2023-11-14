@@ -6,7 +6,6 @@ import { LoginForm } from "@/components/LoginForm/LoginForm";
 import { useRouter } from "next/navigation";
 import useUser from "@/lib/useUser";
 
-
 const LoginPage = () => {
   const router = useRouter();
   const user = useUser();
@@ -14,7 +13,7 @@ const LoginPage = () => {
   if(user) router.push(`/home`);
 
   return (
-    <div className="flex flex-col justify-center items-center w-screen mt-20 gap-y-24">
+    <div className="flex flex-col justify-center items-center w-screen h-screen gap-y-24">
       <Image
         src={"/linkchar_logo.svg"}
         width={170}

@@ -12,17 +12,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  upload,
 }: {
   children: React.ReactNode;
-  upload: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={`${inter.className} w-screen bg-black`}>
         <Providers>
           {children}
-          {upload}
         </Providers>
       </body>
     </html>

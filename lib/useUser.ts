@@ -1,3 +1,7 @@
+"use client";
+
 export default function useUser() {
-  return localStorage.getItem("token") && true;
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem("token") && true;
+  }
 }

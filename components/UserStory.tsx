@@ -22,14 +22,13 @@ type UserStoryTypes = {
 const UserStory: FC<UserStoryTypes> = ({
   story: { id, avatar, username, stories  },
 }) => {
-  console.log("🚀🚀🚀🚀🚀 ~ file: UserStory.tsx:25 ~ stories:", stories.length)
   avatar = avatar ?? "/images/user-circle.png";
 
   return (
     <li>
       <Link
         href={`/home/${username}`}
-        className="flex items-center cursor-pointer px-7 py-4 w-80 bg-[#242424] hover:bg-[#343434] gap-x-4"
+        className="flex items-center cursor-pointer px-2 md:px-7 py-4 md:w-80 bg-[#242424] dark:bg-[#f2f2f2] hover:dark: hover:bg-[#343434] md:gap-x-4"
       >
         <div className="relative w-12 h-12">
           {avatar && (
@@ -44,12 +43,12 @@ const UserStory: FC<UserStoryTypes> = ({
             />
           )}
         </div>
-        <div className="flex flex-col">
-          <h3 className="text-white text-sm	font-bold	">{username}</h3>
+        <div className="hidden md:flex flex-col">
+          <h3 className="text-white dark:text-black text-sm	font-bold	">{username}</h3>
           <div className="flex gap-x-1">
             <p className="text-sm text-[#FFB7AF]">{stories.length} nuevas</p>
             <span className="text-sm">·</span>
-            <p className="text-sm text-white">{stories[stories.length-1].uploaded_ago}</p>
+            <p className="text-sm dark:text-black text-white">{stories[stories.length-1].uploaded_ago}</p>
           </div>
         </div>
       </Link>

@@ -1,15 +1,36 @@
 import Image from "next/image";
 import React, { FC } from "react";
+import { motion } from "framer-motion";
 
-type StoryImageTypes = {
-  image: string;
+type storyType = {
+  uploaded_ago: string;
+  id: string;
+  file: string;
 };
 
-const StoryImage: FC<StoryImageTypes> = ({ image }) => {
+type StoryImageTypes = {
+  stories: storyType[];
+  currentStory: number;
+};
+
+const StoryImage: FC<StoryImageTypes> = ({ stories, currentStory }) => {
   return (
-    <div className="absolute z-auto top-0 h-full w-96">
-      <Image src={image} fill objectFit="cover" alt="Story" />;
-    </div>
+    <motion.div
+      key={currentStory}
+      initial={{ opacity: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      animate={{ opacity: 1 }}
+      className="absolute z-auto top-0 h-full w-96"
+    >
+      {stories[currentStory]?.file && (
+        <Image
+          src={stories[currentStory].file}
+          fill
+          objectFit="cover"
+          alt="Story"
+        />
+      )}
+    </motion.div>
   );
 };
 
